@@ -1,0 +1,14 @@
+{
+  "name": "database",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+
+  },
+  "author": "ChaoticWeg (Shawn Lutch)",
+  "license": "ISC",
+  "dependencies": {
+    "pg": "^4.4.6"
+  }
+}

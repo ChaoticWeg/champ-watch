@@ -1,0 +1,112 @@
+extends layouts/main
+
+block styles
+	style(type='text/css').
+		.champ-image { width: 5em; height: 5em; margin-bottom: 1em; }
+		
+		.btn-control-panel { margin-bottom: 1em; }
+		.btn-control-panel button { margin-left: 0.5em; width: 5.5em; height: 2.5em; }
+		
+		.champ { opacity: 0.7; }
+		.champ:hover { opacity: 0.8; }
+		.champ.champ-selected { opacity: 1.0; }
+
+block scripts
+	script(type='text/javascript').
+		var selected = [];
+		
+		function getSelectedChamps () {
+			var result = [];
+			
+			$('.champ-selected').each(function (index) {
+				result.push($(this).attr('name'));
+			});
+			
+			return result.sort();
+		};
+		
+		function updateSelectedChamps () {
+			selected = getSelectedChamps();
+			updateSelectedChampsDisplay();
+		};
+		
+		function updateSelectedChampsDisplay () {
+			$('.selected-count').text(selected.length);
+			$('.selected-champ-names-pre').text(selected.length > 0 ? 'Watching champs:' : '');
+			$('.selected-champ-names').text(selected.join(', '));
+		};
+		
+		function onBtnSaveClick () {
+			$('.btn-save-text').addClass('hidden');
+			$('.btn-save-spinner').removeClass('hidden');
+			
+			var data = { selected: getSelectedChamps() };
+			
+			console.log('sending to server: ', data);
+			$.post('/account/update', data, function () { window.location = '/account'; });
+		};
+		
+		function onBtnClearClick () {
+			$('.champ-selected').each(function () {
+				$(this).removeClass('champ-selected');
+			});
+			
+			updateSelectedChamps();
+		};
+		
+		function onChampClicked () {
+			$(this).toggleClass('champ-selected');
+			
+			if ($(this).hasClass('champ-selected')) {
+				console.log('selected champ: %s', $(this).attr('name'));
+			} else {
+				console.log('deselected champ: %s', $(this).attr('name'));
+			}
+			
+			updateSelectedChamps();
+		};
+		
+		$(function () {
+			updateSelectedChamps();
+			
+			$('.btn-save').click(onBtnSaveClick);
+			$('.btn-clear').click(onBtnClearClick);
+			$('.champ').click(onChampClicked);
+		});
+
+block content
+	h2.page-header= user.username
+	.row
+		.col-xs-12.col-sm-8
+			h3 Champ Watching
+			p Click a champ to watch or unwatch. Be sure to save!
+			.visible-xs.btn-control-panel
+				p Champs watched: 
+					span.selected-count 0
+				button.btn.btn-success.btn-save
+					span.btn-save-text Save
+					span.btn-save-spinner.icon-spinner.icon-spin.hidden
+			
+			ul.list-inline#champ-watching(style='text-align:center;')
+				- for (var i in champs) {
+					- var champ = champs[i];
+					- var isUserWatchingChamp = user.champs && user.champs.indexOf(champ.name) > -1;
+					
+					li(class='#{isUserWatchingChamp ? "champ champ-selected" : "champ"}', id='champ_#{champ.key}', name='#{champ.name}')
+						img.champ-image(src='#{buildImageURL(champ.key)}', title='#{champ.name}')
+				- }
+		.col-sm-4.visible-sm.visible-md.visible-lg.visible-xl(style='text-align:right;')
+			h3 Controls
+			.btn-control-panel
+				button.btn.btn-danger.btn-clear Clear
+				button.btn.btn-success.btn-save
+					span.btn-save-text Save
+					i.fa.fa-spinner.fa-pulse.btn-save-spinner.hidden
+			p
+				span.selected-count 0
+				|  champs being watched
+			p
+				span.selected-champ-names-pre
+				br
+				span.selected-champ-names
+			

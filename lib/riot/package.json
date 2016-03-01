@@ -1,0 +1,14 @@
+{
+  "name": "riot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+
+  },
+  "author": "ChaoticWeg (Shawn Lutch)",
+  "license": "ISC",
+  "dependencies": {
+    "node-rest-client": "^1.8.0"
+  }
+}

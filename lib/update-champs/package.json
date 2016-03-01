@@ -1,0 +1,17 @@
+{
+  "name": "champ-watch_update-champs",
+  "version": "1.0.0",
+  "description": "Update the list of free champs every so often (configurable)",
+  "main": "index.js",
+  "scripts": {
+
+  },
+  "author": "ChaoticWeg (Shawn Lutch)",
+  "license": "ISC",
+  "dependencies": {
+    "node-rest-client": "^1.8.0",
+    "pg": "^4.4.6",
+    "promise": "^7.1.1",
+    "underscore": "^1.8.3"
+  }
+}

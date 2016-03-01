@@ -1,0 +1,7 @@
+*.sh
+node_modules/
+passport*
+
+# hide the sensitive stuff
+lib/database/query-list.js
+lib/riot/info.js

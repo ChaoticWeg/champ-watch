@@ -1,0 +1,20 @@
+{
+  "name": "champ-watch",
+  "version": "1.0.0",
+  "description": "(League of Legends) Tracks free-week champs, notifies you of the status of your favorite champs",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodemon -x \"./test.sh\"",
+		"start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chaoticweg/champ-watch.git"
+  },
+  "author": "ChaoticWeg (Shawn Lutch)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chaoticweg/champ-watch/issues"
+  },
+  "homepage": "https://github.com/chaoticweg/champ-watch#readme"
+}

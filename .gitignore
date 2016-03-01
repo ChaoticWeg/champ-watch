@@ -1,6 +1,8 @@
 *.sh
 node_modules/
 passport*
+npm-debug.log
+
 
 # hide the sensitive stuff
 lib/database/query-list.js

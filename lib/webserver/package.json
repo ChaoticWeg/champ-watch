@@ -1,11 +1,13 @@
 {
   "name": "champ-watch_webserver",
   "version": "1.0.0",
-  "description": "Webserver for champ-watch",
+  "description": "Webserver module for champ-watch",
+	"repository": "https://github.com/chaoticweg/champ-watch.git",
   "main": "index.js",
   "scripts": {},
   "author": "ChaoticWeg (Shawn Lutch)",
   "license": "ISC",
+	
   "dependencies": {
     "body-parser": "^1.15.0",
     "connect-ensure-login": "^0.1.1",

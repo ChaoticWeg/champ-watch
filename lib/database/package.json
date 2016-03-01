@@ -1,7 +1,8 @@
 {
   "name": "database",
   "version": "1.0.0",
-  "description": "",
+  "description": "Database module for champ-watch",
+	"repository": "https://github.com/chaoticweg/champ-watch.git",
   "main": "index.js",
   "scripts": {
 

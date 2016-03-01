@@ -1,7 +1,8 @@
 {
   "name": "riot",
   "version": "1.0.0",
-  "description": "",
+  "description": "Riot API module for champ-watch",
+	"repository": "https://github.com/chaoticweg/champ-watch.git",
   "main": "index.js",
   "scripts": {
 

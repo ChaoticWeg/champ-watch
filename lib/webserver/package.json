@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "description": "Webserver for champ-watch",
   "main": "index.js",
-  "scripts": {
-    
-  },
+  "scripts": {},
   "author": "ChaoticWeg (Shawn Lutch)",
   "license": "ISC",
   "dependencies": {
@@ -17,7 +15,6 @@
     "express-session": "^1.13.0",
     "jade": "^1.11.0",
     "morgan": "^1.7.0",
-    "object-sizeof": "^1.0.9",
     "passport": "^0.3.2",
     "passport-twitter": "^1.0.4"
   }

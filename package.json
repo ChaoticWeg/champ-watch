@@ -16,5 +16,11 @@
   "bugs": {
     "url": "https://github.com/chaoticweg/champ-watch/issues"
   },
-  "homepage": "https://github.com/chaoticweg/champ-watch#readme"
+  "homepage": "https://github.com/chaoticweg/champ-watch#readme",
+	"dependencies": {
+		"database": "./lib/database",
+		"riot": "./lib/riot",
+		"update-champs": "./lib/update-champs",
+		"webserver": "./lib/webserver"
+	}
 }

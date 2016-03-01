@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "nodemon -x \"./test.sh\"",
-		"start": "node index.js"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -17,10 +17,12 @@
     "url": "https://github.com/chaoticweg/champ-watch/issues"
   },
   "homepage": "https://github.com/chaoticweg/champ-watch#readme",
-	"dependencies": {
-		"database": "./lib/database",
-		"riot": "./lib/riot",
-		"update-champs": "./lib/update-champs",
-		"webserver": "./lib/webserver"
-	}
+  "dependencies": {
+    "champ-watch_update-champs": "file:lib/update-champs",
+    "champ-watch_webserver": "file:lib/webserver",
+    "database": "file:lib/database",
+    "riot": "file:lib/riot",
+    "update-champs": "./lib/update-champs",
+    "webserver": "./lib/webserver"
+  }
 }

@@ -4,11 +4,11 @@ block styles
 	style(type='text/css').
 		.champ-image { width: 5em; height: 5em; margin-bottom: 1em; }
 		
-		.btn-control-panel { margin-bottom: 1em; }
+		.btn-control-panel { margin-bottom: 2.5em; }
 		.btn-control-panel button { margin-left: 0.5em; width: 5.5em; height: 2.5em; }
 		
-		.champ { opacity: 0.7; }
-		.champ:hover { opacity: 0.8; }
+		.champ { opacity: 0.5; }
+		.champ:hover { opacity: 0.75; }
 		.champ.champ-selected { opacity: 1.0; }
 
 block scripts
@@ -32,8 +32,7 @@ block scripts
 		
 		function updateSelectedChampsDisplay () {
 			$('.selected-count').text(selected.length);
-			$('.selected-champ-names-pre').text(selected.length > 0 ? 'Watching champs:' : '');
-			$('.selected-champ-names').text(selected.join(', '));
+			$('.selected-champ-names').html(selected.join('<br />'));
 		};
 		
 		function onBtnSaveClick () {
@@ -75,11 +74,13 @@ block scripts
 		});
 
 block content
-	h2.page-header= user.username
+	h2.page-header.hidden-xs= user.username
 	.row
 		.col-xs-12.col-sm-8
 			h3 Champ Watching
 			p Click a champ to watch or unwatch. Be sure to save!
+			
+			//- extra-small screens only: control panel above champ list
 			.visible-xs.btn-control-panel
 				p Champs watched: 
 					span.selected-count 0
@@ -95,18 +96,18 @@ block content
 					li(class='#{isUserWatchingChamp ? "champ champ-selected" : "champ"}', id='champ_#{champ.key}', name='#{champ.name}')
 						img.champ-image(src='#{buildImageURL(champ.key)}', title='#{champ.name}')
 				- }
-		.col-sm-4.visible-sm.visible-md.visible-lg.visible-xl(style='text-align:right;')
+		
+		//- small screens and up: info panel, align right
+		.col-sm-4.hidden-xs.info-panel(style='text-align:right;')
 			h3 Controls
+			p Watching #[span.selected-count 0] champs
+			
 			.btn-control-panel
 				button.btn.btn-danger.btn-clear Clear
 				button.btn.btn-success.btn-save
 					span.btn-save-text Save
 					i.fa.fa-spinner.fa-pulse.btn-save-spinner.hidden
-			p
-				span.selected-count 0
-				|  champs being watched
-			p
-				span.selected-champ-names-pre
-				br
-				span.selected-champ-names
+			
+			h3 Champs
+			p #[span.selected-champ-names]
 			

@@ -1,3 +1,9 @@
+# nodemon info and test script
+nodemon.json
 test.sh
+
+# hide all node modules (deps are installed in deploy script)
 node_modules/
+
+# other fun stuff
 npm-debug.log

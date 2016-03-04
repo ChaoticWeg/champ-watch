@@ -1,12 +1,29 @@
 extends layouts/main
 
-block scripts
+block styles
+	style(type='text/css').
+		/* Small devices: < 992px width */
+		@media (min-width: 0px) {
+			.champ-div img {
+				width:  5em;
+				height: 5em;
+			}
+		}
+		
+		@media (min-width: 992px) {
+			.champ-div img {
+				width:  7.5em;
+				height: 7.5em;
+			}
+		}
+		
 
+block scripts
 
 block content
 	div(style='margin-top:2em')
 	.container(style='text-align:center')
-		h2 Free champs:
+		h2 Free Champs
 		.row
 			.col-xs-10.col-xs-offset-1.col-sm-8.col-sm-offset-2#champs-container
 	
@@ -21,7 +38,7 @@ block content
 						li.champ(id='#{key}')
 							.champ-div
 								img(title="#{name}", src="#{buildImageURL(key)}")
-								p= name
+								p= name === "Heimerdinger" ? "Donger" : name
 					- }
 					
 					//- if we have no champs, then what the fuck

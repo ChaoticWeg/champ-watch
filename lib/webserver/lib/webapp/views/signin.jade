@@ -1,0 +1,23 @@
+extends layouts/main
+
+block styles
+	style(type='text/css').
+		.row { text-align: center; }
+		
+		.btn-social { color: #ffffff; }
+		.btn-social:hover { color: #ffffff; }
+		.btn-social img { height: 32px; width: 32px; }
+		
+		/* Social image brand colors */
+		.btn-twitter { background-color: #55acee; }
+
+block content
+	.row
+		.col-xs-12.col-sm-10.col-sm-offset-1.col-md-8.col-md-offset-2
+			h1.page-header Sign in
+			
+			//- sign in options
+			a(role='button', href='/signin/twitter', title='Sign in with Twitter')
+				button.btn.btn-md.btn-social.btn-twitter 
+					| #[img(src='/img/twitter.png')]
+					| &emsp; Sign in with Twitter

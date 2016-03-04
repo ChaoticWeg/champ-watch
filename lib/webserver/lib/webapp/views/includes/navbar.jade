@@ -22,8 +22,7 @@ nav.navbar.navbar-default
 					
 				li.dropdown#account-dropdown
 					a.dropdown-toggle(data-toggle='dropdown', role='button')
-						| #{user.username}&emsp;
-						span.caret
+						| #{user.username}&emsp; #[span.caret]
 					ul.dropdown-menu
 						li: a(href='/account') My account
 						li.divider
@@ -31,7 +30,19 @@ nav.navbar.navbar-default
 				
 				//- if no user is logged in, show a "sign in" link
 				- } else {
+				
+				//- small displays and smaller: sign-in link
+				li.hidden-md.hidden-lg: a(href='/signin') Sign in
+				
+				//- medium display and larger: sign-in dropdown
+				li.dropdown.hidden-xs.hidden-sm
+					a.dropdown-toggle(role='button', data-toggle='dropdown') Sign in&emsp;#[span.caret]
+					ul.dropdown-menu
 					
-				li#sign-in: a(href='/signin/twitter') Sign in
-					
+						li.dropdown-header Sign in with...
+						li: a(href='/signin/twitter') Twitter
+						
+						li.divider
+						li: a(href='/signin') See all options
+				
 				- }

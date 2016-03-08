@@ -4,7 +4,7 @@
   "description": "(League of Legends) Tracks free-week champs, notifies you of the status of your favorite champs",
   "main": "index.js",
   "scripts": {
-    "test": "nodemon -x \"./test.sh\"",
+    "test": "./test.sh",
     "start": "node index.js"
   },
   "repository": {
@@ -22,6 +22,7 @@
     "champ-watch_webserver": "file:lib/webserver",
     "database": "file:lib/database",
     "riot": "file:lib/riot",
+    "underscore": "^1.8.3",
     "update-champs": "./lib/update-champs",
     "webserver": "./lib/webserver"
   }
